@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"ember-cli-font-awesome",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "ember-cli-font-awesome",
+    "description": "api documentation for [ember-cli-font-awesome (v1.5.2)](https://github.com/martndemus/ember-cli-font-awesome#readme) [![npm package](https://img.shields.io/npm/v/npmdoc-ember-cli-font-awesome.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-ember-cli-font-awesome) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-ember-cli-font-awesome.svg)](https://travis-ci.org/npmdoc/node-npmdoc-ember-cli-font-awesome)",
     "devDependencies": {
-        "ember-cli-font-awesome": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "ember-cli-font-awesome": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-ember-cli-font-awesome",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-ember-cli-font-awesome",
+    "keywords": [
+        "documentation",
+        "ember-cli-font-awesome"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_ember_cli_font_awesome.js",
+    "name": "npmdoc-ember-cli-font-awesome",
+    "nameAlias": "npmdoc_ember_cli_font_awesome",
+    "nameOriginal": "npmdoc-ember-cli-font-awesome",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-ember-cli-font-awesome"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
